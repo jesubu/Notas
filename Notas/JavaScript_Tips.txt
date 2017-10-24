@@ -1,0 +1,33 @@
+//PASAR PROPIEDADES EN UN ARRAY
+///////////////////////////////
+
+//forma 1
+/////////
+class Hotel {
+constructor(name, rooms, booked){
+this.name = name;
+this.rooms = rooms;
+this.booked = booked;
+}
+}
+
+
+var array = ['name', 'rooms', 'booked'];
+var hotelOne = new Hotel(array[0],array[1],array[2]);
+console.log(hotelOne)
+
+//forma 2
+/////////
+let constructor = (fields) => (values) => {
+var o = {}
+fields.map((f, i) => o[f] = values[i])
+return o
+}
+
+let hotel = constructor(['name', 'rooms', 'booked'])
+let h = hotel(['Holiday INN', 28, true])
+console.log(h)
+
+///////////////////////////////
+
+/['"]+/g

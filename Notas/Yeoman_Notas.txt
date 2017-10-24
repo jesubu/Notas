@@ -1,0 +1,41 @@
+//1.
+-----
+npm install npm@latest
+npm install yo mem-fs grunt jasmine-core phantomjs grunt-cli bower karma generator-karma generator-angular@0.14.0
+yo doctor
+yo angular
+grunt serve
+grunt test
+////////////////////////
+
+//2.
+-----
+npm install -g yo grunt-cli bower
+npm install -g grunt-cli bower yo generator-karma generator-angular
+
+//3.
+------
+gulp serve-dev
+
+//4.
+------
+YO-Angular
+------
+grunt server
+grunt build
+//5.
+-----
+creamos una nueva entrada, la agrega al route, crea el controlador y la vista.
+yo angular:route home
+
+//6.
+----
+instalar dependencias
+
+bower install angular-mocks
+bower install ngstorage
+bower install -S angular-local-storage
+bower install ng-mock-e2e
+
+bower install --save satellizer
+https://carlosazaustre.es/blog/autenticacion-con-token-en-angularjs/

@@ -1,0 +1,202 @@
+0. AYUDA
+////////
+	git help
+	
+	git help commit ->sobre un comando
+
+1. CONFIGURACIÓN USUARIO/CUENTA
+///////////////////////////////
+	git config --gloabl user.name "jesubu"
+	git config --global user.email "fjdiazr@gmail.com"
+	
+	git config --config -e ->abra editor para configuracion
+
+	git log -->historial de commits atual
+	git log --oneline --> resumen
+	git log --oneline --decorate --all --graph
+	git reflog -->un historico con los commits y reset.
+	
+	//CREAMOS UN ALIAS
+	git config --global alias.lg "log --oneline --decorate --all --graph"
+		Cuando ejecutemos git lg --> se ejecutará lo de arriba.
+	
+2. COMANDOS INICIALES
+/////////////////////
+		ls -al -->mostramos carpetas y archivos
+		
+		git init --> inicializamos en la ubicación la configuración de GIT para un proyecto.
+		git status -->nos muestra los archivos si subir. rojo
+			git status -s -->en modo corto
+			git status -s -b -->en modo corto + en branche
+			
+		git add .  // git add index.html ->agregamos todos los arhivos--aparecen en verde
+			git add index.html -->agregamos el archivo index.html
+			git add *.png -->agregamos todos los archivos png en el directorio actual
+			git add "*.png" -->agregamos todos los archivos png de todo el proyecto
+			git add css/ -->agregamos la carpeta css y su contenido
+			git add css/*.css -->agregamos la carpeta css y los archivos que tengan extensión css.
+			git add -A -->agregamos todos los que ha sufrido cambios
+			git add --all -->agrega tds los archivos == -A
+			//una vez agregados al stage...si queremos excluir uno del commit, por ejm. los archivos xml
+			git reset *.xml
+			
+			
+		git commit -m "descripcion del commit" ->hace un snapshot 
+		
+		git commit -am "Readme actualz" -->agrega al stage y hace commit con mensaje.
+		 
+		git status --> nada que hacer commit.
+		
+		git diff -->nos muestra las diferenacias entre los archivos.
+			//puede darse el caso que se ha echo commit, entonces no nos devuelve nada
+			//ya que el archivo se encuentra en el stage...por tanto hay que hacer:
+			git diff --staged
+		//Si queremos sacar un archivo del stage-->
+		git reset HEAD nombreArchivo.Extension -->el HEAD apunta al ultimo commit que hicimos, si queremos sobre el anterior HEAD^ (alt+94)
+		//si queremos eliminar los cambios de ese archivo-> git checkout -- README.md 
+			//OTRA FORMA:
+			git reset --soft a2f34s5 --> con el codigo hash, volvemos al punto del STAGE que indiquemos.
+				//si hacmeos git status vemos el estado. podemos hacer las modificaciones y volver hacer commit de los archivos.
+			git reset --mixed f4g6ue79 --> idem...anterior pero elimina los cambios en el STAGE.
+			
+------------------------------------------------------------------------------------------------------------------------------------	
+			Soft => 
+			"elimina" los commits posteriores al commit al que estas haciendo el reset
+			conserva los cambios en el stage area
+			conserva los cambios que tengas en tus archivos (working directory)
+			
+			Mixed => 
+			"elimina" los commits posteriores al commit al que estas haciendo el reset
+			Deshace los cambios en el stage area
+			conserva los cambios que tengas en tus archivos (working directory)
+			
+			Hard=> 
+			"elimina" los commits posteriores al commit al que estas haciendo el reset
+			Deshace los cambios en el stage area
+			Deshace los cambios que tengas en tus archivos (working directory)
+------------------------------------------------------------------------------------------------------------------------------------			
+		//Una vez realizado un git reset --hard -->volviendo a un punto inicial...
+		//siempre tenemos posibilidad de regresar al estado en el que lo teniamos
+		//hacemo nuevamente un git reset --hard s3d34f1 -->ponemos el hash que nos da el git reflog
+			
+3. MODIFICACION DE ARCHIVOS		
+///////////////////////////
+	modificamos archivos. guardamos cambios
+	para recuperalo
+	git checkout -- . descarta los cambios que no hayan sufrido commit. Restaura al ultimo commit.
+	git checkout -- "index.html"
+	git mv ar1.txt ar2.txt -->mueve y renombra un archivo. seguidamente hacer commit
+	git rm ar1.txt -->eliminamos el archivo indicado. seguidamente hacer commit
+	
+	//si eliminamos un archivo desde fuera, desde un editor, o renombramos.
+	//hay que hacer un git add -u -->actualiza el STAGE. seguidamente hacemos un commit.
+	
+	//Ignorar archivos que no deseamos.
+	agregamos en el raiz un archivo con el siguiente nombreArchivo: .gitignore -->lo agreamos al stage y commit
+	dentro de ese archivo por linea vamos poniendo archivos que git ignorará. ejm:
+		data.log -->excluye un archivo en concreto
+		*.exe	 -->excluye unos archivos que cumplan con la extensión
+		node_modules/-->excluye todo lo contenido dentro de esa carpeta
+
+4. CREACIÓN DE RAMAS
+//////////////////////		
+	
+	git branch -->nos indica en que rama nos encontramos ahora.
+	git branch miRama-->creamos una rama 
+	git checkout miRama -->nos movemos a esa rama.
+	-----
+		los dos comandos anteriores lo podemos hacer en uno solo
+		git checkout -b miRama 
+	-----
+	
+	git diff miRama master -->nos muestra las diferencias entre miRama y la master.
+	-------------------------------
+	//Para unir la miRama y la master debo situarme en la master.
+	git checkout Master
+	git merge miRama
+	//Si hacemos git lg -->nos muestra la master y la rama correspondinete...la rama que creamos continua existiendo (git branch)...no tiene sentido
+	//es buena practica borrar seguidamnete una rama despues del merge
+	git branch -d miRama
+	-------------------------------
+	
+4. CREACIÓN DE TAGS
+//////////////////////
+	git tag -->nos muestra un listado de los tag
+	git tag miRelease -->creamos un tag
+	git tag -d miRelease -->eliminamos un tag determinado.
+	--------------------------
+	git tag -a v1.0.0 -m "version sin incluir...." -->creamo un tag con descripcion
+	--------------------------
+	git tag -a v0.2.1 s2dd4s45 -m "descripcion" -->creamos un tag en un punto determinado del historico (hash)
+	
+	git show v1.0.0 -->nos da la información del codigo y tag en ese momento.
+
+5. CREACION DE STASH
+//////////////////////
+	cuando tenemos nuestro proyecto en desarrollo y necesitamos desplegar una actualización o aplicar unos cambios 
+	sobre el HEAD, a modo urgente...podemos utilizar stash, hace una copia y almacena lo que tengamos en el STAGE
+	y elimina esas modificaciones, de modo que cuando podamos subir la release o los cambios pertinentes, podamos
+	recuperalos.
+	
+	Tenemos unos cambios en el stage, donde aun no hemos commit, necesitamos deplegar algo de urgencia...sobre lo estable.
+	
+	git stash -->almacena el estado actual y restablece el head.
+	///apartir de aqui podemos hacer los cambios 
+	git stash pop -->extae los cambios en el STAGE que teniamos y elimina.
+	git stash list --> nos muestra tds los stash k tengamos
+	git show stash -->idem anterior, pero muestra las diferencias.
+	git stash drop --> nos elimina el primer registro del stash
+	
+5. USO DE REBASE
+//////////////////////	
+	//union de varios commits
+	git rebase -i HEAD~4 //nos edita los ultimos 4 commit, en consola,
+	//indicamos con s el que va a unirse y p a quien va a unirse.
+	//:wq
+	
+
+6.GITHUB
+////////////
+	//tenemos nuestro codigo en local
+	//creamos nuestro respositorio y subimos
+	git remote add origin https://github.com/jesubu/udemy-heroes.git
+	git push -u origin master
+	//los tags no se suben por defecto...
+	//tendremos que hacerlo con el siguiente comando:
+	git push --tags
+	
+	git remote -v -->para ver a que proyecto estamos enlazados
+	
+	git pull -->para traernos los cambios del proyecto al que estamos enlazados
+	
+	git clone https://github.com/jesubu/udemy-heroes.git niNombre-->para descargarnos un proyecto de github, donde miNombre es el nombre nuevo dl proyecto
+	
+	//para subir cambios locales despues del commit local
+	//lo que tenemos que hacer es:
+	1. hacer un fetch (no hace el merge de forma automatica) o pull.
+		git fecht -->git actualiza localmente td los cambios que habia en el servidor remoto.
+		git pull
+		
+	2. subimos nuestros cambios
+		git push
+	
+		
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+		

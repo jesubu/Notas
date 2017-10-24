@@ -1,0 +1,25 @@
+Developed the Business API using ASP.NET Web API securing it with IdentityServer3 using OAuth2 
+
+
+<system.webServer>
+	<modules runAllManagedModulesForAllRequests="true" />
+</system.webServer>
+
+Install-Package Microsoft.Owin.Host.SystemWeb 
+install-package IdentityServer3
+Install-Package IdentityServer3.EntityFramework
+Install-Package EntityFramework
+Install-Package IdentityServer3.AspNetIdentity
+Install-Package AntiXSS
+Install-Package Microsoft.AspNet.Identity.Core
+Install-Package Microsoft.AspNet.Identity.EntityFramework
+install-package Microsoft.AspNet.Identity.Owin
+Install-Package IdentityManager.AspNetIdentity -Pre
+
+Uninstall-Package Microsoft.AspNet.Identity.Owin
+Microsoft.IdentityModel.Protocol.Extensions
+
+Install-Package IdentityModel
+// The Client Secret matching AppSettings.SetClientSecret() call
+                                                                      // in the ServiceStack Setup
+																	  123456789

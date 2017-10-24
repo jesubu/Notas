@@ -1,0 +1,47 @@
+//EN EL CONTROLADOR
+//--------------------------------
+	  $http({
+            method: 'GET',
+            url: $rootScope.appPath +'clientesSilAux',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', tokenString);
+                xhr.setRequestHeader('RoleId', 2);
+            }
+        }).then(function correcto(respuesta) {
+            $scope.comboDataClientes = respuesta.data;
+            $scope.ClientesDataSource = new kendo.data.DataSource({
+                data: respuesta.data,
+                pageSize: 20
+            });
+
+            //$scope.ClientesSil = respuesta.data;
+        }, function errores(error) {
+            alert("Error en la carga.");
+        });
+
+
+
+    $scope.clientesVirtualOptions = {
+      virtual: true,
+      valueMapper: function(options) {
+        
+        for (var i = 0; i < $scope.comboDataClientes.length; i++) {
+          if ($scope.comboDataClientes[i].IdCliente === options.value) {
+            options.success(i);
+          }
+        }
+      }
+    };
+	
+//EN LA VISTA
+//--------------------------------
+            <select kendo-combo-box
+							ng-model="ClientesSil"
+							k-placeholder="'Select product'"
+							k-data-text-field="'RazonSocial'"
+							k-data-value-field="'IdCliente'"
+							k-data-source="ClientesDataSource"
+							
+							k-filter="'contains'" style="width: 100%;"
+							k-virtual="clientesVirtualOptions"
+							k-height="200"/>
