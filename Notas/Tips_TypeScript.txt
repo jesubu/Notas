@@ -1,0 +1,35 @@
+FUNCION FLECHA
+--------------
+
+EJM-1
+------
+
+let miFuncion=function(a){
+	return a;
+}
+
+let miFuncionF=a=>a;
+
+--------------------------------------------------------------	
+
+EJM-2
+------	
+let miFuncion2=function(a:number,b:number){
+	return a+b;
+}
+
+let miFuncion2F=(a:number,b:number)=>a+b;
+
+--------------------------------------------------------------		
+
+EJM-3
+------
+let miFuncion3=function(nombre:string){
+	nombre=nombre.toUpperCase();
+	return nombre;
+}
+
+let miFuncion3F=(nombre:string)=>{
+	nombre=nombre.toUpperCase();
+	return nombre;
+}
