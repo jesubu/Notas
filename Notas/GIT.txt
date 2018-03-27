@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //DEVELOP 1
 
 //DEVELOP 2
@@ -7,7 +7,7 @@ produccion 1
 
 
 Resolucion incidencia 1
->>>>>>> incidencia_1
+
 
 0. AYUDA
 ////////
