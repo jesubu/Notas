@@ -1,15 +1,9 @@
-
-//DEVELOP 1
-
-//DEVELOP 2
-=======
 produccion 1
 
 
 Resolucion incidencia 1
 
-
-0. AYUDA
+0. INICIO
 ////////
 	git help
 	
