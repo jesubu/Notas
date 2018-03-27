@@ -6,7 +6,7 @@
 
 1. CONFIGURACIÓN USUARIO/CUENTA
 ///////////////////////////////
-	git config --gloabl user.name "jesubu"
+	git config --global user.name "jesubu"
 	git config --global user.email "fjdiazr@gmail.com"
 	
 	git config --config -e ->abra editor para configuracion
