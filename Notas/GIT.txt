@@ -3,9 +3,6 @@ produccion 1
 
 Resolucion incidencia 1
 
-
-continuamos produccion
-
 0. AYUDA
 ////////
 	git help
