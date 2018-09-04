@@ -1,0 +1,23 @@
+3918
+3921
+3925
+3929
+3932
+
+7cc8366a-f5e1-40d8-a4bd-3d2f157f4461_docx
+7cc8366a-f5e1-40d8-a4bd-3d2f157f4461_docx
+
+
+select  t1.idIncidencia,t1.CodIncidencia,Departamento,t1.Descripcion,et.Descripcion,t1.activa,e.Corto as EmpresaIncidencia from (
+select distinct i.idIncidencia , i.CodIncidencia,cast(i.Descripcion as nvarchar(3000)) as Descripcion,i.idEmpresa,h.idDepartamento,h.activa,h.idEtapa
+from
+	 wIncidencias i
+			inner join  wIncidenciasParametros p on p.idIncidencia=i.idIncidencia AND P.idIncidenciaParamtroPadre IS NULL
+			inner join  wIncidenciasParametrosPersonasEtapas h	on h.idIncidenciaParametro=p.idIncidenciaParametro
+			left join wIncidenciasParametrosAcciones a 	on a.idIncidenciaParametro=h.idIncidenciaParametro	and a.idDepartamentoPersona=h.iddepartamento
+)T1
+inner join Empresas E on e.idEmpresa =t1.idEmpresa
+inner join wIncidenciaEtapa et on et.idEtapa=t1.idEtapa
+inner join Departamentos d on d.idDepartamento=t1.idDepartamento
+where t1.idEmpresa=9 and CodIncidencia not like 'I-16%'
+order by CodIncidencia,t1.idEmpresa,t1.idEtapa,activa

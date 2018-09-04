@@ -1,0 +1,33 @@
+Dim AgThread As System.Threading.Thread
+
+'en el onstart
+inicializo el hilo indicando la funcion de arranque-->fncIni
+AgThreadIni = New System.Threading.Thread(New System.Threading.ThreadStart(AddressOf fncIni))
+AgThreadIni.IsBackground = True
+'iniciamos el hilo
+AgThreadIni.Start()
+
+
+' funcion de arranque
+Private Sub fncIni()
+	Try
+		While Interruptor = True
+            ''AKI PONES TU CODIGO O LLAMADAS
+			
+            System.Threading.Thread.Sleep(TIEMPO) 'PARAMOS X TIEMPO
+
+        End While
+
+
+	Catch ex As Exception
+		
+	Finally
+
+	End Try
+
+End Sub
+
+'en el evento onstop paramos el hilo...sino da problemas.
+Protected Overrides Sub OnStop()
+	AgThreadIni.Abort()
+End Sub	

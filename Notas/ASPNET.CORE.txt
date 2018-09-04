@@ -1,0 +1,7 @@
+url: https://www.microsoft.com/net/download/windows
+
+download .net core sdk
+
+comprobación: 
+	dotnet --version
+

@@ -1,0 +1,20 @@
+dotnet help
+
+dotnet new xxxxx
+	xxxxx-->tipo de proyecto, console, angular, webapi, etc
+
+dotnet run--> ejecuta el proyecto
+
+dotnet build-->compila el proyecto e indica el path de donde deja el ejecutable.
+
+dotnet restores-->reinstala las dependencias
+
+dotnet publish -o path
+------------------------------------------------------------
+
+dotnet new web
+
+ver async y await, continuewith
+
+------------------------------------------------------------
+
