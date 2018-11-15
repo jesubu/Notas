@@ -1,0 +1,35 @@
+============================================================================
+LA AGILIDAD DE LOS PEQUEÑOS DETALLES
+============================================================================
+Son los pequeños detalles, cosas tan pequeñas… que pareciera que no tuvieran ni repercusión ni importancia. Pero la cultura, Ágil, o la que sea, vive en los pequeños detalles.
+
+El macro mundo de las transformaciones Ágiles parece vivir de grandes planes de cambio, grandes programas de formación, grandes reestructuraciones, grandes eventos, grandes presentaciones de inicio de curso, grandes instalaciones de herramientas… Los intentos de tener una cultura Ágil (o la cultura que sea) mueren en los pequeños detalles, como ese bacon que parece insignificante y que no merece mínima estima y atención.
+
+Y mueren cuando apenas nos saludamos, cuando no hay sonrisas, cuando cuesta trabajo levantarme para decírtelo y prefiero enviártelo por mail, muere en ese uso imperceptible del yo frente al nosotros, en esa mirada de “te has equivocado”, en esas pequeñas intolerancias, en ese sutil “te lo dije”, en ese “no lo intentes que no te va a funcionar”, en esa frase defensiva al final de un mail, en esa breve pereza justo antes de entrar en el trabajo, en esa línea de código que a nadie importa, en ese test que da igual…
+
+No desconsideres al “bacon” por parecerte insignificante, porque un cambio cultural está repleto del cambio en un montón de “pequeños” detalles.
+
+Que la agilidad te acompañe.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+deuda tecnica
+eufemismo...consecuencia de malas practicas de programcion/diseño
+tiene beneficios a corto plazo pq se va m´ás rapido pero que va generando deuda que genera deuda que se va disparando
+es un eufemismo que intenta aproximar el impacto de la mala calidad a personas sin conocimiento o perfil tecnico.
+
+con poquitas practicas...si se van arreglando voy mejorando...pero si las dejo que se acumulen el conjunto de malas practicas dejare que se bloquee la aplicación.
+el problema de la dt es la que no se paga ...la que se va dejando (legaci) y termina bloqueando.
+
+mucha organizacion con mucho codigo legaci está bastante incapacitada para que en unos tiempos razonables pueda añadir nuevas funcionalidades. Es dificil eliminar.
+
+negligencia arquitectonica.
+
+hay cosas positivas que se pueden añadir aun soft. como una nueva funcionalidad que todos pueden verla.
+habia cosas positivas que nadie desde fuera podia ver como mejorar la arquietectura o un refactorin.
+habia cosas negativas que tds puenden ver se pueden ver como cuando habia un bug o se caia la app.
+y la DT estaba en ese lugar oscuro, negativas que nadie termina de ver, como codigo espagueti, copy&paste masivos, arquetura muy dificil de mantener.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
